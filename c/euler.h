@@ -68,4 +68,25 @@ totient(uint_t n)
     return (int) tot;
 }
 
+uint_t
+gcd(int m, int n) {
+    if(m == 0 && n == 0)
+        return -1;
+
+    if(m < 0) m = -m;
+    if(n < 0) n = -n;
+
+    int r;
+    while(n) {
+        r = m % n;
+        m = n;
+        n = r;
+    }
+    return m;
+}
+
+int coprime(int m, int n) {
+    return (gcd(m,n) == 1);
+}
+
 #endif
